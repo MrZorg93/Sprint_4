@@ -14,8 +14,17 @@ public class TestAccountClass {
     @DisplayName("Проверяем имя/фамилию нулевой длинны")
     @Description("Успешное выполнение теста при срабатывании валидатора и возвращении false от checkNameToEmboss")
     @Test
-    public void checkCheckNameToEmbossReturnFalseWhenNameIsNull(){
+    public void checkCheckNameToEmbossReturnFalseWhenNameIsVoid(){
         String name = "";
+        Account account = new Account(name);
+        assertFalse(account.checkNameToEmboss(), "Неверное имя прошло валидацию!");
+    }
+
+    @DisplayName("Проверяем пустое имя/фамилию")
+    @Description("Успешное выполнение теста при срабатывании валидатора и возвращении false от checkNameToEmboss")
+    @Test
+    public void checkCheckNameToEmbossReturnFalseWhenNameIsNull(){
+        String name = null;
         Account account = new Account(name);
         assertFalse(account.checkNameToEmboss(), "Неверное имя прошло валидацию!");
     }
